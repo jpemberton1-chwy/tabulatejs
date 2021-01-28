@@ -22,4 +22,10 @@ describe('table', () => {
       expect(table.sort().toArray()).toEqual(bySalary);
     });
   });
+
+  describe("with formatters", () => {
+    test("it should output correct format", () => {
+      expect(table.to.json()).toBe(JSON.stringify(employees));
+    });
+  });
 });

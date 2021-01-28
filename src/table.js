@@ -1,6 +1,7 @@
 import sort from "./sort";
 import csv from "./csv";
 import xml from "./xml";
+import toJson from "./json";
 
 export default function tabulate(json, primaryKey = null) {
   const _json = [...json];
@@ -16,7 +17,7 @@ export default function tabulate(json, primaryKey = null) {
       return fn.toArray();
     },
     json() {
-      return [..._json];
+      return toJson(_json);
     },
     csv() {
       return csv(_json);
