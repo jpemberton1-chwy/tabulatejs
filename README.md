@@ -36,24 +36,43 @@ const table = tabulate(employees);
 
 ### Sorting by a single property
 
-```
-table.sort('salary'); // returns a new table sorted by salary in ascending order
+```js
+table.sort('salary');
+// returns a new table sorted by salary in ascending order
 ```
 
 ### Sorting by multiple properties
 
+```js
+table.sort(['salary', 'name']);
+// returns a new table sorted by salary and then name in ascending order
 ```
-table.sort(['salary', 'name']); // returns a new table sorted by salary and then name in ascending order
+
+### Exporting as JSON
+
+```js
+const contents = table.sort('salary').to.json();
+// returns collection as a JSON string
 ```
 
 ### Exporting as a CSV
 
-```
-const contents = table.sort('salary').to.csv(); // returns the collection as a CSV formatted string
+```js
+const contents = table.sort('salary').to.csv();
+// returns the collection as a CSV formatted string
 ```
 
 ### Exporting as XML
 
+```js
+const xml = table.sort('salary').to.xml();
+// returns the collection as an XML document
 ```
-const xml = table.sort('salary').to.xml(); // returns the collection as an XML document
+
+### Unwrapping from Tabulate
+
+```js
+const data = table.sort('salary').to.array();
+// or
+const data = table.sort('salary').toArray();
 ```
