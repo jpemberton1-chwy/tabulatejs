@@ -1,0 +1,29 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:latest
+
+jobs:
+  test:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          command: yarn install
+          name: Install dependencies
+      - run:
+          command: yarn test
+          name: Run unit tests
+
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - master
+
